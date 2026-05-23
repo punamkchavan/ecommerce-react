@@ -15,12 +15,12 @@ import Home from './component/Home/Home.jsx';
 import ProductDetails from './component/Product/ProductDetails.jsx';
 import Products from './component/Product/Products.jsx';
 import Search from './component/Product/Search.jsx';
-const LoginSignUp = () => <div>LoginSignUp</div>;
-const Profile = () => <div>Profile</div>;
-const UpdateProfile = () => <div>UpdateProfile</div>;
-const UpdatePassword = () => <div>UpdatePassword</div>;
-const ForgotPassword = () => <div>ForgotPassword</div>;
-const ResetPassword = () => <div>ResetPassword</div>;
+import LoginSignUp from './component/User/LoginSignup.jsx';
+import Profile from './component/User/Profile.jsx';
+import UpdateProfile from './component/User/UpdateProfile.jsx';
+import UpdatePassword from './component/User/UpdatePassword.jsx';
+import ForgotPassword from './component/User/ForgotPassword.jsx';
+import ResetPassword from './component/User/ResetPassword.jsx';
 const Cart = () => <div>Cart</div>;
 const Shipping = () => <div>Shipping</div>;
 const ConfirmOrder = () => <div>ConfirmOrder</div>;
@@ -38,12 +38,21 @@ const UpdateUser = () => <div>UpdateUser</div>;
 const ProcessOrder = () => <div>ProcessOrder</div>;
 const UpdateProduct = () => <div>UpdateProduct</div>;
 
-const ProtectedRoute = ({ children }) => children;
+import ProtectedRoute from './component/Routes/ProtectedRoute.jsx';
 const AdminRoute = ({ children }) => children;
-const UserOptions = () => null;
+import UserOptions from './component/layout/Header/UserOptions.jsx';
+import { loadUser } from './slices/userSlice.js';
+import { store } from './store.js';
+import { useEffect } from 'react';
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      store.dispatch(loadUser());
+    }
+  }, []);
 
   return (
     <Router>

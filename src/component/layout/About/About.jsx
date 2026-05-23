@@ -1,6 +1,6 @@
 import React from "react";
 import "./aboutSection.css";
-import { Button, Header } from 'semantic-ui-react';
+import { Button } from '@mui/material';
 import MetaData from "../MetaData";
 
 const About = () => {
@@ -13,12 +13,12 @@ const About = () => {
             <div></div>
             <div className="aboutSectionGradient"></div>
             <div className="aboutSectionContainer">
-                <Header component="h1">About Us</Header>
+                <h1>About Us</h1>
 
                 <div>
                     <div>
-                        <Header>Avadhut Kelaksar</Header>
-                        <Button onClick={visitInstagram} color="primary">
+                        <h2>Punam Chavan</h2>
+                        <Button onClick={visitInstagram} variant="contained" color="primary">
                             Visit Instagram
                         </Button>
                         <span>

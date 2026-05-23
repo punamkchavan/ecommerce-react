@@ -11,6 +11,13 @@ import {
     reviewReducer
 } from "./slices/productSlice.js";
 import { cartReducer } from "./slices/cartSlice.js";
+import {
+    userReducer,
+    profileReducer,
+    forgotPasswordReducer,
+    allUsersReducer,
+    userDetailsReducer
+} from "./slices/userSlice.js";
 
 const storage = storageObject.default || storageObject;
 
@@ -23,9 +30,9 @@ const persistConfig = {
 const rootReducer = combineReducers({
     products: productsReducer,
     productDetails: productDetailsReducer,
-    user: (state = { user: {}, loading: false, isAuthenticated: false }) => state,
-    profile: (state = {}) => state,
-    forgotPassword: (state = {}) => state,
+    user: userReducer,
+    profile: profileReducer,
+    forgotPassword: forgotPasswordReducer,
     cart: cartReducer,
     newOrder: (state = {}) => state,
     myOrders: (state = { orders: [] }) => state,
@@ -35,8 +42,8 @@ const rootReducer = combineReducers({
     newReview: newReviewReducer,
     productReviews: productReviewsReducer,
     review: reviewReducer,
-    allUsers: (state = { users: [] }) => state,
-    userDetails: (state = { user: {} }) => state,
+    allUsers: allUsersReducer,
+    userDetails: userDetailsReducer,
     newProduct: newProductReducer,
     product: productReducer,
 });

@@ -18,6 +18,13 @@ import {
     allUsersReducer,
     userDetailsReducer
 } from "./slices/userSlice.js";
+import {
+    newOrderReducer,
+    myOrdersReducer,
+    allOrdersReducer,
+    orderReducer,
+    orderDetailsReducer
+} from "./slices/orderSlice.js";
 
 const storage = storageObject.default || storageObject;
 
@@ -34,11 +41,11 @@ const rootReducer = combineReducers({
     profile: profileReducer,
     forgotPassword: forgotPasswordReducer,
     cart: cartReducer,
-    newOrder: (state = {}) => state,
-    myOrders: (state = { orders: [] }) => state,
-    orderDetails: (state = { order: {} }) => state,
-    allOrders: (state = { orders: [] }) => state,
-    order: productReducer,
+    newOrder: newOrderReducer,
+    myOrders: myOrdersReducer,
+    orderDetails: orderDetailsReducer,
+    allOrders: allOrdersReducer,
+    order: orderReducer,
     newReview: newReviewReducer,
     productReviews: productReviewsReducer,
     review: reviewReducer,

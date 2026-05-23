@@ -1,6 +1,16 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import storageObject from "redux-persist/lib/storage";
+import {
+    productsReducer,
+    productDetailsReducer,
+    newProductReducer,
+    productReducer,
+    newReviewReducer,
+    productReviewsReducer,
+    reviewReducer
+} from "./slices/productSlice.js";
+import { cartReducer } from "./slices/cartSlice.js";
 
 const storage = storageObject.default || storageObject;
 
@@ -11,24 +21,24 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-    products: (state = { products: [] }) => state,
-    productDetails: (state = { product: {} }) => state,
+    products: productsReducer,
+    productDetails: productDetailsReducer,
     user: (state = { user: {}, loading: false, isAuthenticated: false }) => state,
     profile: (state = {}) => state,
     forgotPassword: (state = {}) => state,
-    cart: (state = { cartItems: [], shippingInfo: {} }) => state,
+    cart: cartReducer,
     newOrder: (state = {}) => state,
     myOrders: (state = { orders: [] }) => state,
     orderDetails: (state = { order: {} }) => state,
     allOrders: (state = { orders: [] }) => state,
-    order: (state = {}) => state,
-    newReview: (state = {}) => state,
-    productReviews: (state = { reviews: [] }) => state,
-    review: (state = {}) => state,
+    order: productReducer,
+    newReview: newReviewReducer,
+    productReviews: productReviewsReducer,
+    review: reviewReducer,
     allUsers: (state = { users: [] }) => state,
     userDetails: (state = { user: {} }) => state,
-    newProduct: (state = {}) => state,
-    product: (state = {}) => state,
+    newProduct: newProductReducer,
+    product: productReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

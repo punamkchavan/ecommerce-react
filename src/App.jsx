@@ -11,10 +11,10 @@ import About from './component/layout/About/About.jsx';
 import Contact from './component/layout/Contact/Contact.jsx';
 import NotFound from './component/layout/Not Found/NotFound.jsx';
 
-const Home = () => <div>Home</div>;
-const ProductDetails = () => <div>ProductDetails</div>;
-const Products = () => <div>Products</div>;
-const Search = () => <div>Search</div>;
+import Home from './component/Home/Home.jsx';
+import ProductDetails from './component/Product/ProductDetails.jsx';
+import Products from './component/Product/Products.jsx';
+import Search from './component/Product/Search.jsx';
 const LoginSignUp = () => <div>LoginSignUp</div>;
 const Profile = () => <div>Profile</div>;
 const UpdateProfile = () => <div>UpdateProfile</div>;
